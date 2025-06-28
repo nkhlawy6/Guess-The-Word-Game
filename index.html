@@ -1,13 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Can you predict the next element?</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link
+      rel=" shortcut icon"
+      href="assets/images/ChatGPT Image Jun 26, 2025, 10_01_55 AM.png"
+      type="image/png"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/globaleStyles.css" />
+    <link rel="stylesheet" href="assets/css/root.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div>
+        <img
+          src="assets/images/ChatGPT Image Jun 26, 2025, 10_01_55 AM.png"
+          alt="logo"
+          class="logo"
+        />
+        <h1 class="game-title" id="gameTitle"></h1>
+      </div>
+    </header>
+    <div class="guess-game">
+      <div class="game-area">
+        <div class="inputs"></div>
+        <div class="control">
+          <button class="check">Check Word</button>
+          <button class="hint"><span></span>Hint</button>
+        </div>
+        <div class="message"></div>
+      </div>
+      <div class="key-colors">
+        <h2>Key Colors</h2>
+        <div class="key-color">
+          <div class="color in-place"></div>
+          <div class="color-text">Right letter, right spot</div>
+        </div>
+        <div class="key-color">
+          <div class="color not-inplace"></div>
+          <div class="color-text">Right letter, wrong place.</div>
+        </div>
+        <div class="key-color">
+          <div class="color wrong"></div>
+          <div class="color-text">Incorrect letter, incorrect position</div>
+        </div>
+      </div>
+    </div>
 
-<script src="main.js"></script>
-</body>
+    <footer class="footer" id="footer"></footer>
+    <script src="main.js"></script>
+  </body>
 </html>

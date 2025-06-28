@@ -1,0 +1,112 @@
+.header {
+  background-color: #33333331;
+  width: 100%;
+}
+
+.header > div {
+  width: 75%;
+  background-color: rgba(255, 255, 255, 0.462);
+  margin: 0px auto 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+  border-radius: 3px;
+}
+
+.header .game-title {
+  font-size: 20px;
+  padding: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  text-shadow: 4px 1px 5px gray;
+  box-shadow: 10px 1px 5px gray, -10px -1px 5px gray;
+}
+
+.header .logo {
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+}
+
+.guess-game {
+  text-align: center;
+  margin: 20px auto;
+  width: 1000px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.guess-game .game-area {
+  text-align: center;
+}
+
+.guess-game .key-colors h2 {
+  text-shadow: 4px 1px 5px gray;
+  position: relative;
+}
+
+.guess-game .key-colors h2::after {
+  content: "";
+  position: absolute;
+  transform: translate(-105px, 30px);
+  width: 90px;
+  border-bottom: 1px solid rgba(224, 222, 222, 0.611);
+  background-color: rgba(255, 0, 0, 0.424);
+}
+
+.guess-game .key-colors .key-color {
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background-color: white;
+  margin-top: 10px;
+}
+
+.guess-game .key-colors .key-color .color {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  margin-right: 10px;
+}
+
+.guess-game .key-colors .key-color .color.in-place {
+  background-color: green;
+}
+
+.guess-game .key-colors .key-color .color.not-inplace {
+  background-color: rgba(235, 235, 17, 0.784);
+}
+
+.guess-game .key-colors .key-color .color.wrong {
+  background-color: rgba(240, 9, 21, 0.784);
+}
+
+.guess-game .key-colors .key-color .color-text {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: #333;
+  color: white;
+  width: 100%;
+  font-weight: bold;
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  transform: translate(270px, 20px);
+  width: 90px;
+  border-bottom: 1px solid rgba(224, 222, 222, 0.611);
+  background-color: red;
+}
