@@ -40,9 +40,55 @@
 }
 
 .guess-game .game-area {
-  text-align: center;
 }
 
+.guess-game .game-area .inputs > div {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.guess-game .game-area .inputs > div span {
+  font-size: 30px;
+  margin-right: 15px;
+  font-weight: bold;
+}
+.guess-game .game-area .inputs > div.disabled-inputs {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.guess-game .game-area .inputs > div input {
+  margin: 0px 5px;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  font-size: 55px;
+  caret-color: var(--primary-color);
+  background-color: white;
+  border: none;
+  border-bottom: 2px#333 solid;
+  border-radius: 2px;
+}
+.guess-game .game-area .inputs > div input:focus {
+  outline: none;
+}
+
+.guess-game .game-area .inputs > div input.yes-in-place {
+  background-color: green;
+  border: green;
+  color: white;
+}
+.guess-game .game-area .inputs > div input.not-in-place {
+  background-color: rgba(235, 235, 17, 0.784);
+  border: rgba(235, 235, 17, 0.784);
+  color: white;
+}
+.guess-game .game-area .inputs > div input.wrong {
+  background-color: rgba(240, 9, 21, 0.784);
+  border: rgba(240, 9, 21, 0.784);
+  color: white;
+}
 .guess-game .key-colors h2 {
   text-shadow: 4px 1px 5px gray;
   position: relative;
