@@ -25,6 +25,33 @@ function generateInput() {
     inputsContainer.appendChild(tryDiv);
   }
   inputsContainer.children[0].children[1].focus();
+  const inputsInDisabledDiv = document.querySelectorAll(
+    ".disabled-inputs input"
+  );
+  inputsInDisabledDiv.forEach((input) => {
+    input.disabled = true;
+  });
+
+  const inputs = document.querySelectorAll("input");
+  inputs.forEach((input, index) => {
+    input.addEventListener("keydown", function (event) {
+      const currentIndex = Array.from(inputs).indexOf(event.target);
+      if (event.key === "ArrowRight") {
+        const nextInput = currentIndex + 1;
+        if (nextInput <= inputs.length) {
+          inputs[nextInput].focus();
+          console.log(nextInput);
+        }
+      }
+      if (event.key === "ArrowLeft") {
+        const prevIput = currentIndex - 1;
+        if (prevIput <= inputs.length) {
+          inputs[prevIput].focus();
+          console.log(prevIput);
+        }
+      }
+    });
+  });
 }
 
 window.onload = function () {
