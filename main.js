@@ -162,16 +162,37 @@ function handleGuesses() {
     messageArea.innerHTML = `You win <span>${wordToGuess}</span> <p>${definitionWord}</p>`;
     messageArea.style.opacity = 1;
     let allTries = document.querySelectorAll(".inputs > div");
-    let control=document.querySelectorAll('.control button');
+    let control = document.querySelectorAll(".control button");
     console.log(control);
     allTries.forEach((input) => input.classList.add("disabled-inputs"));
-    control.forEach((btn) => btn.style.cursor='no-drop');
-
+    control.forEach((btn) => (btn.style.cursor = "no-drop"));
   } else {
-    console.log("wrong");
+    document
+      .querySelector(`.try-${currentTry}`)
+      .classList.add("disabled-inputs");
+    const currentTryInput = document.querySelectorAll(
+      `try-${currentTry} input`
+    );
+    currentTryInput.forEach((input) => {
+      input.disabled = true;
+    });
+
+    currentTry++;
+    
+    const nextTryInputs = document.querySelectorAll(`.try-${currentTry} input`);
+    nextTryInputs.forEach((input) => {input.disabled=false});
+
+    let el=document.querySelector(`.try-${currentTry}`);
+    if(el){
+document.querySelector(`.try-${currentTry}`).classList.remove('disabled-inputs');
+el.children[1].focus()
+    }else{
+      guessButton.disabled=true;
+       messageArea.style.opacity = 1
+      messageArea.innerHTML=`You Lose The Word Is <span> ${wordToGuess}</span>,sorry but you can do it try again :)`
+    }
   }
 }
-
 
 window.onload = function () {
   generateInput();
