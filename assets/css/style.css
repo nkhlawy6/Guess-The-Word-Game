@@ -29,7 +29,60 @@
   height: 50px;
   border-radius: 10px;
 }
+.chatbot {
+  position: absolute;
+  width: 420px;
+  background-color: #0ca2ff24;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 0 5px rgba(17, 150, 217, 0.711),
+    -0 -0 5px rgba(17, 150, 217, 0.506);
+  margin-left: 20px;
+}
+.chatbot .chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(8, 8, 244, 0.636);
+  padding: 15px 22px;
+}
+.chatbot .chat-header .chat-info {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.chatbot .chat-header .chat-info .chatbot-logo {
+  width: 35px;
+  height: 35px;
+  flex-shrink: 0;
+  background-color: #fff;
+  border-radius: 50%;
+  padding: 6px;
+  filter: brightness(120%) saturate(200%);
+}
+.chatbot .chat-header .chat-info .logo-text {
+  color: white;
+  font-size: 1.31rem;
+  font-weight: 600;
+}
+.chatbot .chat-header #closeChatBot {
+  border: none;
+  background-color: transparent;
+  filter: brightness(120%) saturate(200%);
+  width: 40px;
+  height: 40px;
+  font-size: 1.9rem;
+  margin-right: -10px;
+  padding-top: 2px;
 
+  border-radius: 50%;
+  cursor: pointer;
+  text-align: center;
+  transition: 0.3s;
+}
+.chatbot .chat-header #closeChatBot:hover{
+  background-color:rgba(15, 66, 235, 0.361) ;
+}
 .guess-game {
   text-align: center;
   margin: 20px auto;
@@ -47,7 +100,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 .guess-game .game-area .inputs > div span {
   font-size: 30px;
@@ -56,8 +108,7 @@
 }
 .guess-game .game-area .inputs > div.disabled-inputs {
   opacity: 0.5;
-   cursor: no-drop;
-
+  cursor: no-drop;
 }
 
 .guess-game .game-area .inputs > div input {
@@ -71,7 +122,6 @@
   border: none;
   border-bottom: 2px#333 solid;
   border-radius: 2px;
-  
 }
 .guess-game .game-area .inputs > div input:focus {
   outline: none;
@@ -88,7 +138,7 @@
   margin-left: 5px;
   cursor: pointer;
 }
-.guess-game .game-area .control button:disabled{
+.guess-game .game-area .control button:disabled {
   background-color: black;
   opacity: 0.4;
   cursor: no-drop;
@@ -99,8 +149,6 @@
   outline: none;
   border: none;
   flex: 1;
-
-
 }
 .guess-game .game-area .control .hint {
   width: fit-content;
@@ -167,29 +215,29 @@
   font-size: 20px;
   font-weight: bold;
 }
-.guess-game .game-area .message{
+.guess-game .game-area .message {
   padding: 15px 20px;
   text-align: center;
   font-weight: bold;
   font-size: 30px;
-  background-color:rgba(0, 0, 0, 0.261);
+  background-color: rgba(0, 0, 0, 0.261);
   color: white;
   width: 500px;
   height: 200px;
   position: absolute;
-  bottom:200px;
+  bottom: 200px;
   right: 360px;
   border-radius: 10px;
-  opacity:0;
+  opacity: 0;
   transition: var(--transition-0-3);
 }
 
-.guess-game .game-area .message span{
-  color:green;
+.guess-game .game-area .message span {
+  color: green;
   font-weight: bold;
-  font-size:30px;
+  font-size: 30px;
   letter-spacing: 1px;
-  border-bottom: 1px solid ;
+  border-bottom: 1px solid;
   padding: 2px;
 }
 .footer {

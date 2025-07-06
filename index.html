@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title></title>
+    <!-- linking matrial+icons fonts for icons  -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
     <link
       rel=" shortcut icon"
       href="assets/images/ChatGPT Image Jun 26, 2025, 10_01_55 AM.png"
@@ -24,12 +30,43 @@
         <h1 class="game-title" id="gameTitle"></h1>
       </div>
     </header>
+    <div class="chatbot">
+      <div class="chat-header">
+        <div class="chat-info">
+          <img class="chatbot-logo" src="/assets/svg/icon.svg" alt="chatbot logo" />
+          <h2 class="logo-text">GuessBot</h2>
+        </div>
+        <button class="material-icons" id="closeChatBot">keyboard_arrow_down</button>
+      </div>
+      <div class="chat-body">
+        <div class="message bot-message">
+          <img src="assets/svg/icon.svg" alt="" />
+          <div class="message-text">
+            Hey There <br />
+            How can I help you today?
+          </div>
+        </div>
+        <div class="message user-message">
+          <div class="message-text">can you learn me how i can make a cake</div>
+        </div>
+      </div>
+      <div class="chat-footer">
+        <form action="#" class="chat-form">
+          <textarea placeholder="Message..." class="message-input"></textarea>
+          <div class="chat-controls">
+            <button type="button" class="material-icons">sentiment_satisfied</button>
+            <button type="button" class="material-icons">attach_file</button>
+            <button type="submit" class="material-icons">arrow_upward</button>
+          </div>
+        </form>
+      </div>
+    </div>
     <div class="guess-game">
       <div class="game-area">
         <div class="inputs" id="inputs"></div>
         <div class="control">
           <button class="check">Check Word</button>
-          <button class="hint"><span></span>Hint</button>
+          <button class="hint" id="hints"><span></span>Hint</button>
         </div>
         <div class="message" id="message"></div>
       </div>

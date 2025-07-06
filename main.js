@@ -11,6 +11,7 @@ let numberOfLetters = 6;
 let currentTry = 1;
 let wordToGuess = "";
 let definitionWord = "";
+let numberOfHints = 6;
 
 const words = [
   {
@@ -90,6 +91,11 @@ const words = [
 let randomIndex = Math.floor(Math.random() * words.length);
 wordToGuess = words[randomIndex].word.toLowerCase();
 definitionWord = words[randomIndex].definition;
+//mange hints
+document.querySelector("#hints span").innerHTML = numberOfHints;
+const hintButton = document.querySelector("#hints");
+console.log(hintButton);
+hintButton.addEventListener("click", getHint);
 function generateInput() {
   const inputsContainer = document.getElementById("inputs");
   for (let i = 1; i <= numberOfTries; i++) {
@@ -122,14 +128,12 @@ function generateInput() {
         const nextInput = currentIndex + 1;
         if (nextInput <= inputs.length) {
           inputs[nextInput].focus();
-          console.log(nextInput);
         }
       }
       if (event.key === "ArrowLeft") {
         const prevIput = currentIndex - 1;
         if (prevIput <= inputs.length) {
           inputs[prevIput].focus();
-          console.log(prevIput);
         }
       }
     });
@@ -159,6 +163,9 @@ function handleGuesses() {
   }
 
   if (successGuess) {
+    // if(numberOfHints===6){
+    //   messageArea.innerHTML=`<p>Congratz You Didn't Use Hints</p> `
+    // }
     messageArea.innerHTML = `You win <span>${wordToGuess}</span> <p>${definitionWord}</p>`;
     messageArea.style.opacity = 1;
     let allTries = document.querySelectorAll(".inputs > div");
@@ -166,6 +173,7 @@ function handleGuesses() {
     console.log(control);
     allTries.forEach((input) => input.classList.add("disabled-inputs"));
     control.forEach((btn) => (btn.style.cursor = "no-drop"));
+    hintButton.disabled=true;
   } else {
     document
       .querySelector(`.try-${currentTry}`)
@@ -178,22 +186,68 @@ function handleGuesses() {
     });
 
     currentTry++;
-    
-    const nextTryInputs = document.querySelectorAll(`.try-${currentTry} input`);
-    nextTryInputs.forEach((input) => {input.disabled=false});
 
-    let el=document.querySelector(`.try-${currentTry}`);
-    if(el){
-document.querySelector(`.try-${currentTry}`).classList.remove('disabled-inputs');
-el.children[1].focus()
-    }else{
-      guessButton.disabled=true;
-       messageArea.style.opacity = 1
-      messageArea.innerHTML=`You Lose The Word Is <span> ${wordToGuess}</span>,sorry but you can do it try again :)`
+    const nextTryInputs = document.querySelectorAll(`.try-${currentTry} input`);
+    nextTryInputs.forEach((input) => {
+      input.disabled = false;
+    });
+
+    let el = document.querySelector(`.try-${currentTry}`);
+    if (el) {
+      document
+        .querySelector(`.try-${currentTry}`)
+        .classList.remove("disabled-inputs");
+      el.children[1].focus();
+    } else {
+      guessButton.disabled = true;
+      hintButton.disabled=true;
+      messageArea.style.opacity = 1;
+      messageArea.innerHTML = `You Lose The Word Is <span> ${wordToGuess}</span>,sorry but you can do it try again.)`;
     }
   }
 }
+function getHint() {
+  if (numberOfHints > 0) {
+    numberOfHints--;
+    document.querySelector("#hints span").innerHTML = numberOfHints;
+  }
+  if (numberOfHints == 0) {
+    hintButton.disabled = true;
+  }
+  let enabledInputs = document.querySelectorAll("input:not([disabled])");
+  // console.log(enabledInputs);
+  const emptyInableInput = Array.from(enabledInputs).filter((input) => {
+    return input.value === "";
+  });
+ if(emptyInableInput.length>0){
+  const randomIndex2=Math.floor(Math.random()*emptyInableInput.length);
+  const randomInput=emptyInableInput[randomIndex2];
+  const indexOfInputToFill=Array.from(enabledInputs).indexOf(randomInput);
+  if(indexOfInputToFill!==-1){
+    randomInput.value=wordToGuess[indexOfInputToFill].toUpperCase()
+  }
+  console.log(randomInput);
+ }
+}
 
+function handelBackSpace(event){
+if(event.key=='Backspace'){
+const inputs=document.querySelectorAll('input:not([disabled])');
+const currentIndex=Array.from(inputs).indexOf(document.activeElement);
+if(currentIndex>=0){
+  const currentInput=inputs[currentIndex];
+  const prevInput=inputs[currentIndex -1];
+  currentInput.value='';
+  prevInput.value='';
+  prevInput.focus();
+
+  console.log(prevInput);
+}
+
+}
+}
+
+document.addEventListener('keydown',handelBackSpace)
 window.onload = function () {
   generateInput();
 };
