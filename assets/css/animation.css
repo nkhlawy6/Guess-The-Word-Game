@@ -1,0 +1,12 @@
+@keyframes dotPules {
+    0%,44%{
+        transform: translateY(0);
+    }
+    22%{
+        opacity: 0.4;
+        transform: translateY(-4px);
+    }
+    44%{
+        opacity: 0.2;
+    }
+}

@@ -17,6 +17,7 @@
     />
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/globaleStyles.css" />
+    <link rel="stylesheet" href="assets/css/animation.css" />
     <link rel="stylesheet" href="assets/css/root.css" />
   </head>
   <body>
@@ -33,10 +34,16 @@
     <div class="chatbot">
       <div class="chat-header">
         <div class="chat-info">
-          <img class="chatbot-logo" src="/assets/svg/icon.svg" alt="chatbot logo" />
+          <img
+            class="chatbot-logo"
+            src="/assets/svg/icon.svg"
+            alt="chatbot logo"
+          />
           <h2 class="logo-text">GuessBot</h2>
         </div>
-        <button class="material-icons" id="closeChatBot">keyboard_arrow_down</button>
+        <button class="material-icons" id="closeChatBot">
+          keyboard_arrow_down
+        </button>
       </div>
       <div class="chat-body">
         <div class="message bot-message">
@@ -49,14 +56,26 @@
         <div class="message user-message">
           <div class="message-text">can you learn me how i can make a cake</div>
         </div>
+        <div class="message bot-message thinking">
+          <img class="chat-logo" src="assets/svg/icon.svg" alt="" />
+          <div class="message-text">
+           <div class="thinking-indicator">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+           </div>
+          </div>
+        </div>
       </div>
       <div class="chat-footer">
         <form action="#" class="chat-form">
-          <textarea placeholder="Message..." class="message-input"></textarea>
+          <textarea placeholder="Message..." class="message-input" required></textarea>
           <div class="chat-controls">
-            <button type="button" class="material-icons">sentiment_satisfied</button>
+            <button type="button" class="material-icons">
+              sentiment_satisfied
+            </button>
             <button type="button" class="material-icons">attach_file</button>
-            <button type="submit" class="material-icons">arrow_upward</button>
+            <button type="submit" class="material-icons" id="send-message">arrow_upward</button>
           </div>
         </form>
       </div>
