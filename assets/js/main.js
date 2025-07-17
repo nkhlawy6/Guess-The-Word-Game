@@ -251,3 +251,4 @@ document.addEventListener('keydown',handelBackSpace)
 window.onload = function () {
   generateInput();
 };
+
