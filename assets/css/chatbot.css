@@ -7,6 +7,8 @@
   box-shadow: 0 0 5px rgba(17, 150, 217, 0.711),
     -0 -0 5px rgba(17, 150, 217, 0.506);
   margin-left: 20px;
+  scrollbar-width: thin;
+  scrollbar-color:rgba(8, 8, 244, 0.636) rgba(8, 8, 244, 0.278) ;
 }
 .chatbot .chat-header {
   display: flex;
